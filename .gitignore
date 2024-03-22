@@ -9,7 +9,7 @@ class Perro:
 # Clase para manejar la exposición canina
 class ExposicionCanina:
     def __init__(self):
-        self.perros = []
+        self.perros = []  # La exposición canina tiene una lista de perros
 
     # Método para agregar un perro a la exposición
     def agregar_perro(self, perro):
