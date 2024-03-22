@@ -1,0 +1,54 @@
+# Clase para representar un perro
+class Perro:
+    def __init__(self, nombre, raza, edad, puntos):
+        self.nombre = nombre
+        self.raza = raza
+        self.edad = edad
+        self.puntos = puntos
+
+# Clase para manejar la exposición canina
+class ExposicionCanina:
+    def __init__(self):
+        self.perros = []
+
+    # Método para agregar un perro a la exposición
+    def agregar_perro(self, perro):
+        self.perros.append(perro)
+
+    # Método para mostrar la lista de perros ordenada por un criterio específico
+    def mostrar_lista_perros(self, key):
+        perros_ordenados = sorted(self.perros, key=key)
+        print("Lista de perros:")
+        for perro in perros_ordenados:
+            print(f"Nombre: {perro.nombre}, Raza: {perro.raza}, Edad: {perro.edad}, Puntos: {perro.puntos}")
+
+    # Método para mostrar la información de un perro específico
+    def mostrar_informacion_perro(self, nombre):
+        for perro in self.perros:
+            if perro.nombre == nombre:
+                print(f"Información del perro {nombre}:")
+                print(f"Raza: {perro.raza}, Edad: {perro.edad}, Puntos: {perro.puntos}")
+                return
+        print(f"No se encontró ningún perro con el nombre {nombre}")
+
+
+# Crear una instancia de la exposición canina
+exposicion = ExposicionCanina()
+
+# Agregar algunos perros de muestra
+exposicion.agregar_perro(Perro("Max", "Labrador", 5, 90))
+exposicion.agregar_perro(Perro("Buddy", "Golden Retriever", 3, 85))
+exposicion.agregar_perro(Perro("Luna", "Bulldog Francés", 2, 80))
+exposicion.agregar_perro(Perro("Rocky", "Dálmata", 4, 88))
+
+# Mostrar la lista de perros ordenada por raza
+exposicion.mostrar_lista_perros(lambda perro: perro.raza)
+
+# Mostrar la lista de perros ordenada por puntos
+exposicion.mostrar_lista_perros(lambda perro: perro.puntos)
+
+# Mostrar la lista de perros ordenada por edad
+exposicion.mostrar_lista_perros(lambda perro: perro.edad)
+
+# Mostrar la información de un perro específico
+exposicion.mostrar_informacion_perro("Buddy")
